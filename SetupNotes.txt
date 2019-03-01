@@ -11,3 +11,4 @@ screen /dev/cu.applepi0-SerialPort 115200
 
 # and now we can echo "cheese" > /dev/rfcomm0
 # and we see it when we cat /dev/cu.applepi0-SerialPort !
+# run rand_serial to send random numbers through serial (on the pi)
