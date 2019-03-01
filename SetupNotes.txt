@@ -1,3 +1,4 @@
+# PI's Static IP Addr: 10.18.236.185
 # On the pi:
 
 pi@applepi0:~ $ sudo emacs /etc/systemd/system/dbus-org.bluez.service
