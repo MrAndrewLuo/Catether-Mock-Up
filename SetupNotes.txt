@@ -1,0 +1,10 @@
+# On the pi:
+
+pi@applepi0:~ $ sudo emacs /etc/systemd/system/dbus-org.bluez.service
+pi@applepi0:~ $ sudo rfcomm watch hci0 1 getty rfcomm0 115200 vt100 -a pi
+Waiting for connection on channel 1
+Connection from 9C:F3:87:BC:4F:13 to /dev/rfcomm0
+Press CTRL-C for hangup
+
+# On our side:
+screen /dev/cu.applepi0-SerialPort 115200
