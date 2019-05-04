@@ -31,27 +31,35 @@ public class RotationScript : MonoBehaviour
 	{
         // TODO: do something with x and y
 
-        if (Input.GetKey(KeyCode.UpArrow))
-			transform.Rotate(Vector3.left * -Time.deltaTime * turnSpeed, Space.World);
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			transform.Rotate (Vector3.left * -Time.deltaTime * turnSpeed, Space.World);
+			y += 1;
+		}
 
-		if(Input.GetKey(KeyCode.DownArrow))
-			transform.Rotate(Vector3.left * Time.deltaTime * turnSpeed, Space.World);
+		if (Input.GetKey (KeyCode.DownArrow)) {
+			transform.Rotate (Vector3.left * Time.deltaTime * turnSpeed, Space.World);
+			y -= 1;
+		}
 
-		if(Input.GetKey(KeyCode.LeftArrow))
-			transform.Rotate(Vector3.back * -Time.deltaTime * turnSpeed, Space.World);
+		if (Input.GetKey (KeyCode.LeftArrow)) {
+			transform.Rotate (Vector3.back * -Time.deltaTime * turnSpeed, Space.World);
+			x -= 1;
+		}
 
-		if(Input.GetKey(KeyCode.RightArrow))
-			transform.Rotate(Vector3.back * Time.deltaTime * turnSpeed, Space.World);
+		if (Input.GetKey (KeyCode.RightArrow)) {
+			transform.Rotate (Vector3.back * Time.deltaTime * turnSpeed, Space.World);
+			x += 1;
+		}
 
         // wait for additional inputs
-        x = 0;
-        y = 0;
+//        x = 0;
+//        y = 0;
 	}
 
     void OnSerialLine(string line)
     {
         // TODO: write the appropriate values into x and y
-        Debug.Log("Got a line: " + line);
+		Debug.Log("Got a line: " + line + " " + x + " " + y);
     }
 
 	Vector3 rotatePointAroundAxis(Vector3 point, float angle, Vector3 axis)
