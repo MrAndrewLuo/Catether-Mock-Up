@@ -29,7 +29,7 @@ public class RotationScript : MonoBehaviour
         // TODO: do something with x and y
 
 		if (Input.GetKey (KeyCode.UpArrow)) {
-			transform.Rotate (Vector3.left * -Time.deltaTime * turnSpeed, Space.World);
+			transform.Rotate (Vector3.right * Time.deltaTime * turnSpeed, Space.World);
 			y += 1;
 		}
 
@@ -39,12 +39,12 @@ public class RotationScript : MonoBehaviour
 		}
 
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			transform.Rotate (Vector3.back * -Time.deltaTime * turnSpeed, Space.World);
+			transform.Rotate (Vector3.back * Time.deltaTime * turnSpeed, Space.World);
 			x -= 1;
 		}
 
 		if (Input.GetKey (KeyCode.RightArrow)) {
-			transform.Rotate (Vector3.back * Time.deltaTime * turnSpeed, Space.World);
+			transform.Rotate (Vector3.forward * Time.deltaTime * turnSpeed, Space.World);
 			x += 1;
 		}
 

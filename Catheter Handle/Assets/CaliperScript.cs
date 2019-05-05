@@ -4,36 +4,45 @@ using UnityEngine;
 
 public class CaliperScript : MonoBehaviour
 {
-    GameObject left, right;
+    Transform leftMarker, rightMarker;
+    bool isLeft;
 
     // Start is called before the first frame update
     void Start()
     {
-        left = this.transform.GetChild(0).gameObject;
-        right = this.transform.GetChild(1).gameObject;
-
-        left.transform.parent = null;
-        right.transform.parent = null;
+        leftMarker = this.transform.Find("CursorLeft");
+        rightMarker = this.transform.Find("CursorRight");
+        isLeft = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Transform current;
+        if (isLeft)
+        {
+            current = leftMarker;
+        }
+        else
+        {
+            current = rightMarker;
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
-            left.transform.SetParent(transform, false);
-            Vector3 position = left.transform.localPosition;
-            position.x--;
-            //left.transform.localPosition = position;
-            Debug.Log(left.transform.localPosition);
+            current.localPosition += Vector3.left * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            left.transform.SetParent(transform, false);
-            Vector3 position = left.transform.localPosition;
-            position.x++;
-            //left.transform.localPosition = position;
-            Debug.Log(left.transform.localPosition);
+            current.localPosition += Vector3.right * Time.deltaTime;
         }
+
+        if (Input.GetKey(KeyCode.Z))
+        {
+            isLeft = !isLeft;
+        }
+
+        double distance = rightMarker.localPosition.x - leftMarker.localPosition.x;
+        Debug.Log("Current distance: " + distance);
     }
 }
