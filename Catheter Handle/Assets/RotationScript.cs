@@ -3,9 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-[RequireComponent(typeof(Button))]
-
 public class RotationScript : MonoBehaviour
 {
 	public float moveSpeed = 10f;
@@ -24,7 +21,7 @@ public class RotationScript : MonoBehaviour
 
 	void OnGUI()
 	{
-		GUI.Box(new Rect(0, 0, 50, 50), "This is a box");
+		//GUI.Box(new Rect(0, 0, 50, 50), "This is a box");
 	}
 
 	void Update ()
